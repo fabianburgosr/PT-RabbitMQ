@@ -29,7 +29,6 @@ environment {
         		    //sh '/tmp/test.sh helm install nginx-ingress-${chartsName} nginx-stable/nginx-ingress --set controller.publishService.enabled=true,controller.hostNetwork=true,controller.service.type="" --namespace wso2mi --kubeconfig=/tmp/.kube/config'
         		    sh '/tmp/test.sh helm install ${chartsName} ./helmcharts/${chartsName} --namespace rabbitmq'
         		    //sh '/tmp/test.sh  helm install ${chartsName} ./helmcharts/${chartsName} --namespace wso2mi --dry-run --debug --kubeconfig=/tmp/.kube/config'
-               	    }
             }
            }
     }
