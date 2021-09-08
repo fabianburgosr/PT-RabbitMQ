@@ -15,7 +15,7 @@ environment {
  
     stages {          
            stage('Deploy Rabbitmq to K8S') {
-       		
+             container('helm'{
             steps {
                 echo 'Deploy RabbitMQ to Admin K8s Cluster ....'
                 /* Funciona con el plugin de Kubernetes deployment de Azure -Actualmente tiene un bug-
@@ -30,6 +30,7 @@ environment {
         		    sh '/tmp/test.sh helm install ${chartsName} ./helmcharts/${chartsName} --namespace rabbitmq'
         		    //sh '/tmp/test.sh  helm install ${chartsName} ./helmcharts/${chartsName} --namespace wso2mi --dry-run --debug --kubeconfig=/tmp/.kube/config'
             }
+             }   
            }
     }
 }
