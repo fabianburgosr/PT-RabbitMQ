@@ -15,9 +15,10 @@ environment {
  
     stages {          
            stage('Deploy Rabbitmq to K8S') {
-             container('helm'){
+             
             steps {
                 echo 'Deploy RabbitMQ to Admin K8s Cluster ....'
+              container('helm'){
                 /* Funciona con el plugin de Kubernetes deployment de Azure -Actualmente tiene un bug-
                     script {
           		kubernetesDeploy (configs: 'deployment.yaml',kubeconfigId: 'kubeconfdigoce')
