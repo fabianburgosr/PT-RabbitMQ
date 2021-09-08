@@ -9,10 +9,10 @@ spec:
       image: lachlanevenson/k8s-helm:v3.1.1
       resources:  # limits the resources your build contaienr
         requests:
-          memory: "200mi"
+          memory: "128mi"
           cpu: "100m"
         limits:
-          memory: "500mi"
+          memory: "512mi"
           cpu: "200m" 
       command:
         - cat
