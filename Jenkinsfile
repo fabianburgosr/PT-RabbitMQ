@@ -1,7 +1,8 @@
 
 pipeline {
 environment {
-  chartsName="rabbitmq"
+  nameSpace="rabbitmq"
+  releaseName="rabbitmq-pt"
   }
   
   	agent {
@@ -26,11 +27,11 @@ environment {
         		    }*/
         		    
         		    //workaround=> use helm hasta que actualicen el plugin kubernetesDeploy
-        		    //sh '/tmp/test.sh helm repo add nginx-stable https://helm.nginx.com/stable'
-        		    //sh '/tmp/test.sh helm repo update'
+
         		    //sh '/tmp/test.sh helm install nginx-ingress-${chartsName} nginx-stable/nginx-ingress --set controller.publishService.enabled=true,controller.hostNetwork=true,controller.service.type="" --namespace wso2mi --kubeconfig=/tmp/.kube/config'
-        		    sh 'helm install ${chartsName} ./helmcharts/${chartsName} --namespace rabbitmq'
-                sh 'helm install ${nameVcluster} vcluster --values vcluster.yaml --repo https://charts.loft.sh --namespace ${nameSpace}'
+                sh 'helm repo add bitnami https://charts.bitnami.com/bitnami'
+        		    sh 'helm repo update'
+                sh 'helm install ${releaseName} bitnami/rabbitmq  --values customvalues.yaml --namespace ${nameSpace}'
         		    
             }
              }   
