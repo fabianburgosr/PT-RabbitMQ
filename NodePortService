@@ -6,6 +6,7 @@ metadata:
 spec:
   selector:
     app.kubernetes.io/instance: rabbitmq-pt
+    app.kubernetes.io/name: rabbitmq
   ports:
     - name: amqp
       port: 5672
