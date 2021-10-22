@@ -2,14 +2,14 @@ apiVersion: v1
 kind: Service
 metadata:
   name: rabbitmq-nodeport
-  namespace: vcluster-bps-wekii
+  namespace: rabbitmq
 spec:
   selector:
-    app: vcluster
+    app.kubernetes.io/instance: rabbitmq-pt
     release: vcluster-bps-wekii
   ports:
-    - name: https
-      port: 443
-      targetPort: 8443
+    - name: amqp
+      port: 5672
+      targetPort: 5672
       protocol: TCP
   type: NodePort
